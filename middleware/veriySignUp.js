@@ -1,5 +1,4 @@
-const db = require("../models");
-const ROLES = db.ROLES;
+const db = require("../app/models");
 const User = db.user;
 
 checkEmail = async (req, res, next) =>
@@ -29,19 +28,10 @@ checkUsername = async (req, res, next) =>
 	}
 }
 
-checkRole = async (req, res, next) =>
-{
-	if (req.body.role) {
-	
-		if ( !ROLES.includes(req.body.role) ) return res.status(400).send({ message: "User cannot have this role" });
-		next();
-	}
-}
 
 const verifySignUp = {
 	checkEmail,
 	checKUsername,
-	checkRole
 };
 
 module.exports = verifySignUp; 

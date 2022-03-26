@@ -5,12 +5,8 @@ const app = express();
 
 //config database
 const db = require("./app/models");
-const Role = db.role;
 db.sequelize.sync({force:true})
-.then(() => {
-	initial();
-	console.log("Sync db");
-});
+.then(() => console.log("Sync db"));
 
 //middlewares
 app.use(cors());
@@ -28,18 +24,6 @@ app.use(
 app.get("/", (req, res) => res.json("Welcome to authenticator API") );
 
 
-function initial()
-{
-	Role.create({
-		id: 1,
-		name: "admin"
-	});
-
-	Role.create({
-		id: 1,
-		name: "user"
-	});
-}
 
 //Config
 const PORT = process.env.PORT || 8000;
