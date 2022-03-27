@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const cookieSession = require("cookie-session");
 const app = express();
+const authRouter = require('./routes/authRouter');
+const ressourcesRouter = require('./routes/ressourcesRouter');
 
 //config database
 const db = require("./app/models");
@@ -20,9 +22,12 @@ app.use(
 	})
 );
 
+//router config
+app.use("/api/auth", authRouter);
+app.use("/api/ressources", ressourcesRouter);
+
 //example route
 app.get("/", (req, res) => res.json("Welcome to authenticator API") );
-
 
 
 //Config

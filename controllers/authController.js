@@ -13,7 +13,7 @@ exports.signup = async (req, res) => {
             password: bcyrpt.hashSync( req.body.password, 8 )
         });
 
-        if (user) res.send({message: "Registration successful"});
+        if (user) res.status(200).send({message: "Registration successful"});
     } catch (e) {
         return res.status(500).send({message: e.message});
     }

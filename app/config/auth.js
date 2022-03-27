@@ -1,1 +1,1 @@
-module.exports = { secret: "autheticatorSecret" }
+module.exports = { secret: process.env.JWT_SECRET }
