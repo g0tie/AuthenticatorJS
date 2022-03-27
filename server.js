@@ -17,7 +17,7 @@ app.use(express.urlencoded( {extended:true} ));
 app.use(
 	cookieSession({
 		name: "auth-session",
-		secret: require("./app/conig/auth").secret,
+		secret: require("./app/config/auth").secret,
 		httpOnly: true
 	})
 );

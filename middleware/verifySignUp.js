@@ -31,7 +31,7 @@ checkUsername = async (req, res, next) =>
 
 const verifySignUp = {
 	checkEmail,
-	checKUsername,
+	checkUsername,
 };
 
 module.exports = verifySignUp; 

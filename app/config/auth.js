@@ -1,1 +1,2 @@
-module.exports = { secret: process.env.JWT_SECRET }
+require('dotenv').config();
+module.exports = { secret: process.env.SECRET}
